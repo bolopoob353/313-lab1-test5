@@ -19,7 +19,7 @@ await expect(page.getByText('Username and password do not match',{exact: false})
 await expect(page).toHaveURL('https://www.saucedemo.com/');});
 
 
-//Тест2: Хэрэглэгч амжилттай нэвтэрч бараа сагслаад гарах хийж байгааг шалгах 
+//Тест2: Хэрэглэгч амжилттай нэвтэрч бараа сагслаад гарах "logout" хийж байгааг шалгах 
 test('Add to cart', async ({ page }) =>{
 
 //Дэлгүүрийн нэвтрэх хуудас руу орох
@@ -41,6 +41,7 @@ await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
 
 //Цэсийг нээж системээс гарах 
 await page.getByRole('button',{name:'Open Menu'}).click();
+await expect (page.getByRole('link',{name:'Logout'})).toBeVisible();
 await page.getByRole('link',{ name:'Logout'}).click();
 await expect(page).toHaveURL('https://www.saucedemo.com/');});
 
@@ -61,6 +62,7 @@ await expect(page).toHaveURL(/inventory\.html/);
 
 //Цэсийг нээж системээс гарах 
 await page.getByRole('button', { name: 'Open Menu' }).click();
+await expect (page.getByRole('link',{name:'Logout'})).toBeVisible();
 await page.getByRole('link', { name: 'Logout' }).click();
 
 //Гарсны дараа эхлэлийн нэвтрэх хуудас руу буцсан эсэхийг шалгах
