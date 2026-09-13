@@ -10,13 +10,10 @@ Lab1 - Playwright UI автомат тест
  3. Нэвтэрсны дараа бараа сагслаж гарах 
  
  
- Coodegen ба Trace
- 'docs/codegen.ts' - Playwright-ийн'npx playwright codegen saucedemo.com' командаар автоматаар үүссэн код
- 
- 
- Ялгаа
- Coodegen 'page.locator('[data-test="username"]')'  шиг CSS attribute selector ашиглдаг 
-  Миний бичсэн  'page.getByPlaceholder('Username')','page.getByRole('button',{name: 'Login}) гэх мэт хэрэглдэчид харагдах шинж чанар (accessible name/role ) дээр сууоилсан Энэ нь илүү тест эвдрэхгүй байх магадлалтай тул илүү тогтвортой
-  
-  Assertion - г буруу утгаар өгж шалгах үед 'docs/failed-trace.zip  гарж ирсэн ч дахиад зөв болгоод ажилуулсын дараа алга болсон учраас оруулж чадаагүй 
-  
+Playwright ба Selenium -ийн ялгаа
+
+ Playwright нэг API- аар  гурван хөтчийг ажиллуулдаг бол Selenium-д хөтөч тус бүрд  тусдаа  driver татаж суулгадаг.
+Trace viewer нь тестийн алхамыг  DOM snapshot, network хүсэлт,screenshot-той хамт харуулдаг учир адлаа олоход  selennium -ийн log, screenshot оос хялбар .
+  playwright -ийн coodegen ('npx playwright coodegen') хэрэглэгчийн үйлдлийг шууд код болгон бичдэг бол Selenium д байдаггүй Сангууд ашиглладаг.
+ Playwright нь "auto-waiting" механизмтай тул элемент   visible enebled  болохыг автоматаар хүлээдэг бол Selenium дээр нэмэлт код бичдэг.
+ Хурд тогтвортой байдал  суулгах хялбар байдалаараа Playwright орчин үед веб тестийн хувьд илүү тохиромжтой  Харин   Selenium илүү урт хугацаанд хөгжсөн олон программчлалын хэлийг дэмждэг.
