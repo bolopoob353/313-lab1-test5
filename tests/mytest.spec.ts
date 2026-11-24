@@ -25,7 +25,7 @@ test('Add to cart', async ({ page }) =>{
 //Дэлгүүрийн нэвтрэх хуудас руу орох
 await page.goto('https://www.saucedemo.com');
 
-//Зөв хэрэглэгийн нэр буруу нууц үгээр нэвтрэх 
+
 await page.getByPlaceholder('Username').fill('standard_user');
 await page.getByPlaceholder('Password').fill('secret_sauce');
 await page.getByRole('button',{ name:'Login'}).click();
@@ -40,9 +40,9 @@ await page.getByRole('button',{ name: 'Add to cart'}).first().click();
 await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
 
 //Цэсийг нээж системээс гарах 
-await page.getByRole('button',{name:'Open Menu'}).click();
-await expect (page.getByRole('link',{name:'Logout'})).toBeVisible();
-await page.getByRole('link',{ name:'Logout'}).click();
+await page.getByRole('button', { name: 'Open Menu' }).click();
+await expect(page.locator('[data-test="logout-sidebar-link"]')).toBeVisible();
+await page.locator('[data-test="logout-sidebar-link"]').click();
 await expect(page).toHaveURL('https://www.saucedemo.com/');});
 
 
@@ -62,8 +62,9 @@ await expect(page).toHaveURL(/inventory\.html/);
 
 //Цэсийг нээж системээс гарах 
 await page.getByRole('button', { name: 'Open Menu' }).click();
-await expect (page.getByRole('link',{name:'Logout'})).toBeVisible();
-await page.getByRole('link', { name: 'Logout' }).click();
+await expect(page.locator('[data-test="logout-sidebar-link"]')).toBeVisible();
+await page.locator('[data-test="logout-sidebar-link"]').click();
+
 
 //Гарсны дараа эхлэлийн нэвтрэх хуудас руу буцсан эсэхийг шалгах
 await expect(page).toHaveURL('https://www.saucedemo.com/');
